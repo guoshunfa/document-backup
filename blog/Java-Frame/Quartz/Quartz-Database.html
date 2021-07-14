@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spring Boot整合Quartz持久化到数据库</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/document-backup/assets/css/0.styles.fd822481.css" as="style"><link rel="preload" href="/document-backup/assets/js/app.254c6552.js" as="script"><link rel="preload" href="/document-backup/assets/js/2.79453128.js" as="script"><link rel="preload" href="/document-backup/assets/js/23.d875e675.js" as="script"><link rel="prefetch" href="/document-backup/assets/js/10.6d81dbb4.js"><link rel="prefetch" href="/document-backup/assets/js/11.65dd06ee.js"><link rel="prefetch" href="/document-backup/assets/js/12.b58a21d6.js"><link rel="prefetch" href="/document-backup/assets/js/13.10afba91.js"><link rel="prefetch" href="/document-backup/assets/js/14.0105b222.js"><link rel="prefetch" href="/document-backup/assets/js/15.190fccfa.js"><link rel="prefetch" href="/document-backup/assets/js/16.cec8759f.js"><link rel="prefetch" href="/document-backup/assets/js/17.9e436fc8.js"><link rel="prefetch" href="/document-backup/assets/js/18.826c7fb8.js"><link rel="prefetch" href="/document-backup/assets/js/19.40719ded.js"><link rel="prefetch" href="/document-backup/assets/js/20.456d9bae.js"><link rel="prefetch" href="/document-backup/assets/js/21.aa8d0583.js"><link rel="prefetch" href="/document-backup/assets/js/22.bb78520a.js"><link rel="prefetch" href="/document-backup/assets/js/24.66ee9ac3.js"><link rel="prefetch" href="/document-backup/assets/js/25.38b4cfec.js"><link rel="prefetch" href="/document-backup/assets/js/26.0c5e213f.js"><link rel="prefetch" href="/document-backup/assets/js/27.c06dedcb.js"><link rel="prefetch" href="/document-backup/assets/js/28.72ea37f6.js"><link rel="prefetch" href="/document-backup/assets/js/29.4e7fb475.js"><link rel="prefetch" href="/document-backup/assets/js/3.c7057b78.js"><link rel="prefetch" href="/document-backup/assets/js/30.eeeb8950.js"><link rel="prefetch" href="/document-backup/assets/js/31.feffb4d3.js"><link rel="prefetch" href="/document-backup/assets/js/32.a2cca847.js"><link rel="prefetch" href="/document-backup/assets/js/33.3f0c0164.js"><link rel="prefetch" href="/document-backup/assets/js/34.9b3be093.js"><link rel="prefetch" href="/document-backup/assets/js/35.311c2c6f.js"><link rel="prefetch" href="/document-backup/assets/js/36.ad5f4fda.js"><link rel="prefetch" href="/document-backup/assets/js/37.f283498b.js"><link rel="prefetch" href="/document-backup/assets/js/38.b65d7a13.js"><link rel="prefetch" href="/document-backup/assets/js/39.58699e15.js"><link rel="prefetch" href="/document-backup/assets/js/4.188d788f.js"><link rel="prefetch" href="/document-backup/assets/js/40.b745d0ad.js"><link rel="prefetch" href="/document-backup/assets/js/41.b4a276de.js"><link rel="prefetch" href="/document-backup/assets/js/42.1b3f9e2e.js"><link rel="prefetch" href="/document-backup/assets/js/43.206ec506.js"><link rel="prefetch" href="/document-backup/assets/js/44.45fb8505.js"><link rel="prefetch" href="/document-backup/assets/js/45.85827b0d.js"><link rel="prefetch" href="/document-backup/assets/js/46.3ac3099c.js"><link rel="prefetch" href="/document-backup/assets/js/47.d7e92f86.js"><link rel="prefetch" href="/document-backup/assets/js/48.8554db36.js"><link rel="prefetch" href="/document-backup/assets/js/49.bbd0b2e8.js"><link rel="prefetch" href="/document-backup/assets/js/5.4408e878.js"><link rel="prefetch" href="/document-backup/assets/js/50.f8fb3a38.js"><link rel="prefetch" href="/document-backup/assets/js/51.93cc0796.js"><link rel="prefetch" href="/document-backup/assets/js/52.8fa819c9.js"><link rel="prefetch" href="/document-backup/assets/js/53.4f168de0.js"><link rel="prefetch" href="/document-backup/assets/js/54.99019715.js"><link rel="prefetch" href="/document-backup/assets/js/55.eb746759.js"><link rel="prefetch" href="/document-backup/assets/js/56.f8e0bdee.js"><link rel="prefetch" href="/document-backup/assets/js/57.870b543d.js"><link rel="prefetch" href="/document-backup/assets/js/58.09d20c58.js"><link rel="prefetch" href="/document-backup/assets/js/59.eb488819.js"><link rel="prefetch" href="/document-backup/assets/js/6.16f9ea1a.js"><link rel="prefetch" href="/document-backup/assets/js/60.a9ea941f.js"><link rel="prefetch" href="/document-backup/assets/js/61.90c4a54b.js"><link rel="prefetch" href="/document-backup/assets/js/62.5232f6f6.js"><link rel="prefetch" href="/document-backup/assets/js/63.d102e3de.js"><link rel="prefetch" href="/document-backup/assets/js/64.43a1b515.js"><link rel="prefetch" href="/document-backup/assets/js/65.404055b9.js"><link rel="prefetch" href="/document-backup/assets/js/66.05b596ac.js"><link rel="prefetch" href="/document-backup/assets/js/67.e2731dd6.js"><link rel="prefetch" href="/document-backup/assets/js/68.f254a894.js"><link rel="prefetch" href="/document-backup/assets/js/69.30a99512.js"><link rel="prefetch" href="/document-backup/assets/js/7.777cd971.js"><link rel="prefetch" href="/document-backup/assets/js/70.78e89862.js"><link rel="prefetch" href="/document-backup/assets/js/71.2dedef8d.js"><link rel="prefetch" href="/document-backup/assets/js/72.da587bdf.js"><link rel="prefetch" href="/document-backup/assets/js/73.041d1247.js"><link rel="prefetch" href="/document-backup/assets/js/74.581c41f0.js"><link rel="prefetch" href="/document-backup/assets/js/75.30d85df4.js"><link rel="prefetch" href="/document-backup/assets/js/8.1533424b.js"><link rel="prefetch" href="/document-backup/assets/js/9.9ce3d875.js">
+    <link rel="stylesheet" href="/document-backup/assets/css/0.styles.fd822481.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/document-backup/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" class="nav-link">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" class="nav-link">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Spring Boot整合Quartz持久化到数据库</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#maven依赖" class="sidebar-link">maven依赖</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#mysql-sql文件" class="sidebar-link">Mysql sql文件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#项目信息配置-quartz-properties" class="sidebar-link">项目信息配置（quartz.properties）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#job服务统一执行类-jobautoexe" class="sidebar-link">Job服务统一执行类（JobAutoExe）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#项目配置-quartzconfig" class="sidebar-link">项目配置（QuartzConfig）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#job服务调用-quartzservice" class="sidebar-link">Job服务调用（QuartzService）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#job实体类-jobdatamap" class="sidebar-link">Job实体类（JobDataMap）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#job服务调用-jobcontroller" class="sidebar-link">Job服务调用（JobController）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html#测试job-testjob" class="sidebar-link">测试Job（TestJob）</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="spring-boot整合quartz持久化到数据库"><a href="#spring-boot整合quartz持久化到数据库" class="header-anchor">#</a> Spring Boot整合Quartz持久化到数据库</h1> <h2 id="maven依赖"><a href="#maven依赖" class="header-anchor">#</a> maven依赖</h2> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- lombok --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- quartz --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-quartz<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.quartz-scheduler<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>quartz<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.2.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.quartz-scheduler<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>quartz-jobs<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.2.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-context-support<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- Spring Boot web启动器 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- Mysql --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="mysql-sql文件"><a href="#mysql-sql文件" class="header-anchor">#</a> Mysql sql文件</h2> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">#</span>
+<span class="token comment"># Quartz seems to work best with the driver mm.mysql-2.0.7-bin.jar</span>
+<span class="token comment">#</span>
+<span class="token comment"># PLEASE consider using mysql with innodb tables to avoid locking issues</span>
+<span class="token comment">#</span>
+<span class="token comment"># In your Quartz properties file, you'll need to set</span>
+<span class="token comment"># org.quartz.jobStore.driverDelegateClass = org.quartz.impl.jdbcjobstore.StdJDBCDelegate</span>
+<span class="token comment">#</span>
+
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_FIRED_TRIGGERS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_PAUSED_TRIGGER_GRPS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_SCHEDULER_STATE<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_LOCKS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_SIMPLE_TRIGGERS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_SIMPROP_TRIGGERS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_CRON_TRIGGERS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_BLOB_TRIGGERS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_TRIGGERS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_JOB_DETAILS<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> QRTZ_CALENDARS<span class="token punctuation">;</span>
+
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_JOB_DETAILS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_NAME  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    DESCRIPTION <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_CLASS_NAME   <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    IS_DURABLE <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    IS_NONCONCURRENT <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    IS_UPDATE_DATA <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    REQUESTS_RECOVERY <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_DATA <span class="token keyword">BLOB</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>JOB_NAME<span class="token punctuation">,</span>JOB_GROUP<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_TRIGGERS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_NAME  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    DESCRIPTION <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    NEXT_FIRE_TIME <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    PREV_FIRE_TIME <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    PRIORITY <span class="token keyword">INTEGER</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_STATE <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_TYPE <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    START_TIME <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    END_TIME <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    CALENDAR_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    MISFIRE_INSTR <span class="token keyword">SMALLINT</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_DATA <span class="token keyword">BLOB</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>JOB_NAME<span class="token punctuation">,</span>JOB_GROUP<span class="token punctuation">)</span>
+        <span class="token keyword">REFERENCES</span> QRTZ_JOB_DETAILS<span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>JOB_NAME<span class="token punctuation">,</span>JOB_GROUP<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_SIMPLE_TRIGGERS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    REPEAT_COUNT <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    REPEAT_INTERVAL <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TIMES_TRIGGERED <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+        <span class="token keyword">REFERENCES</span> QRTZ_TRIGGERS<span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_CRON_TRIGGERS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    CRON_EXPRESSION <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TIME_ZONE_ID <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+        <span class="token keyword">REFERENCES</span> QRTZ_TRIGGERS<span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_SIMPROP_TRIGGERS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    STR_PROP_1 <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    STR_PROP_2 <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    STR_PROP_3 <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    INT_PROP_1 <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    INT_PROP_2 <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    LONG_PROP_1 <span class="token keyword">BIGINT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    LONG_PROP_2 <span class="token keyword">BIGINT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    DEC_PROP_1 <span class="token keyword">NUMERIC</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    DEC_PROP_2 <span class="token keyword">NUMERIC</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    BOOL_PROP_1 <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    BOOL_PROP_2 <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+    <span class="token keyword">REFERENCES</span> QRTZ_TRIGGERS<span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_BLOB_TRIGGERS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    BLOB_DATA <span class="token keyword">BLOB</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+        <span class="token keyword">REFERENCES</span> QRTZ_TRIGGERS<span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_CALENDARS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    CALENDAR_NAME  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    CALENDAR <span class="token keyword">BLOB</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>CALENDAR_NAME<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_PAUSED_TRIGGER_GRPS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_GROUP  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>TRIGGER_GROUP<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_FIRED_TRIGGERS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    ENTRY_ID <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">95</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    TRIGGER_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    INSTANCE_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    FIRED_TIME <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    SCHED_TIME <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    PRIORITY <span class="token keyword">INTEGER</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    STATE <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    JOB_GROUP <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    IS_NONCONCURRENT <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    REQUESTS_RECOVERY <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>ENTRY_ID<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_SCHEDULER_STATE
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    INSTANCE_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    LAST_CHECKIN_TIME <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    CHECKIN_INTERVAL <span class="token keyword">BIGINT</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>INSTANCE_NAME<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> QRTZ_LOCKS
+  <span class="token punctuation">(</span>
+    SCHED_NAME <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    LOCK_NAME  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>SCHED_NAME<span class="token punctuation">,</span>LOCK_NAME<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">commit</span><span class="token punctuation">;</span>
+
+</code></pre></div><h2 id="项目信息配置-quartz-properties"><a href="#项目信息配置-quartz-properties" class="header-anchor">#</a> 项目信息配置（quartz.properties）</h2> <div class="language-yml extra-class"><pre class="language-yml"><code>server.port=9992
+<span class="token comment"># MongoDB数据库</span>
+spring.data.mongodb.uri=mongodb<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>27017/gsf_mongodb_20210710
+<span class="token comment">#=======================================================</span>
+<span class="token comment">#调度器配置</span>
+<span class="token comment">#=======================================================</span>
+org.quartz.scheduler.instanceId=AUTO
+org.quartz.scheduler.instanceName=project1QuartzScheduler
+org.quartz.scheduler.rmi.export=false
+org.quartz.scheduler.rmi.proxy=false
+<span class="token comment">#=======================================================</span>
+<span class="token comment">#线程池配置</span>
+<span class="token comment">#=======================================================</span>
+org.quartz.threadPool.class=org.quartz.simpl.SimpleThreadPool
+org.quartz.threadPool.threadCount=5
+org.quartz.threadPool.threadPriority=5
+org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread=true
+<span class="token comment">#=======================================================</span>
+<span class="token comment">#JobStore配置</span>
+<span class="token comment">#=======================================================</span>
+org.quartz.jobStore.misfireThreshold=60000
+org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
+org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+org.quartz.jobStore.isClustered=false
+org.quartz.jobStore.tablePrefix=QRTZ_
+org.quartz.jobStore.dataSource=myDS
+<span class="token comment">#=======================================================</span>
+<span class="token comment">#Mysql数据库配置</span>
+<span class="token comment">#=======================================================</span>
+org.quartz.dataSource.myDS.driver=com.mysql.jdbc.Driver
+org.quartz.dataSource.myDS.URL=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/gsf_quartz_20210711<span class="token punctuation">?</span>characterEncoding=utf<span class="token punctuation">-</span><span class="token number">8</span>
+org.quartz.dataSource.myDS.user=root
+org.quartz.dataSource.myDS.password=guoshunfa
+org.quartz.dataSource.myDS.maxConnections=5
+<span class="token comment">#=======================================================</span>
+<span class="token comment">#MongoDB数据库配置</span>
+<span class="token comment">#=======================================================</span>
+<span class="token comment">#org.quartz.jobStore.class=com.novemberain.quartz.mongodb.MongoDBJobStore</span>
+<span class="token comment">#org.quartz.jobStore.mongoUri= mongodb://localhost:27017</span>
+<span class="token comment">#org.quartz.jobStore.dbName=gsf_mongodb_20210710</span>
+<span class="token comment">#org.quartz.jobStore.collectionPrefix=QRTZ_</span>
+
+</code></pre></div><h2 id="job服务统一执行类-jobautoexe"><a href="#job服务统一执行类-jobautoexe" class="header-anchor">#</a> Job服务统一执行类（JobAutoExe）</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>schedule</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">cn<span class="token punctuation">.</span>hutool<span class="token punctuation">.</span>extra<span class="token punctuation">.</span>spring<span class="token punctuation">.</span></span><span class="token class-name">SpringUtil</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>entity<span class="token punctuation">.</span></span><span class="token class-name">JobDataMap</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Getter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Setter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">JobDetail</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">JobExecutionContext</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">JobExecutionException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">MongoTemplate</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">QuartzJobBean</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Method</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @ClassName JobAutoExe
+ * @Description job统一执行类
+ * @Author guoshunfa
+ * @Date 2021/7/10 下午10:53
+ * @Version 1.0
+ **/</span>
+<span class="token comment">//@DisallowConcurrentExecution // 并发处理</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JobAutoExe</span> <span class="token keyword">extends</span> <span class="token class-name">QuartzJobBean</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * 由quartz框架自动设值：jobDetail.getJobDataMap().put(&quot;jobId&quot;, bean.getId()) 这里面的值都会被设置到实例中
+     */</span>
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token annotation punctuation">@Setter</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> jobId<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">MongoTemplate</span> mongoTemplate<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">executeInternal</span><span class="token punctuation">(</span><span class="token class-name">JobExecutionContext</span> jobExecutionContext<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">JobExecutionException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">JobDetail</span> jobdetail <span class="token operator">=</span> jobExecutionContext<span class="token punctuation">.</span><span class="token function">getJobDetail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">JobDataMap</span> jobDataMap <span class="token operator">=</span> mongoTemplate<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>jobId<span class="token punctuation">,</span> <span class="token class-name">JobDataMap</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>jobDataMap <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token class-name">Object</span> service <span class="token operator">=</span> <span class="token class-name">SpringUtil</span><span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span>jobDataMap<span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Method</span> method <span class="token operator">=</span> service<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span>jobDataMap<span class="token punctuation">.</span><span class="token function">getMethodName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>service<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;job统一执行类&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="项目配置-quartzconfig"><a href="#项目配置-quartzconfig" class="header-anchor">#</a> 项目配置（QuartzConfig）</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>schedule</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">Scheduler</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span>spi<span class="token punctuation">.</span></span><span class="token class-name">JobFactory</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span>spi<span class="token punctuation">.</span></span><span class="token class-name">TriggerFiredBundle</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>config<span class="token punctuation">.</span></span><span class="token class-name">AutowireCapableBeanFactory</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Bean</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Configuration</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>core<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">ClassPathResource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">AdaptableJobFactory</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">SchedulerFactoryBean</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @ClassName QuartzConfig
+ * @Description Quartz控制类
+ * @Author guoshunfa
+ * @Date 2021/7/11 上午9:46
+ * @Version 1.0
+ **/</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QuartzConfig</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">JobFactory</span> jobFactory<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">AutowireCapableBeanFactory</span>  capableBeanFactory<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 当触发器触发时，与之关联的任务被Scheduler中配置的JobFactory实例化，也就是每触发一次，就会创建一个任务的实例化对象
+     * (如果缺省)则调用Job类的newInstance方法生成一个实例
+     * (这里选择自定义)并将创建的Job实例化交给IoC管理
+     * @return
+     */</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">JobFactory</span> <span class="token function">jobFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">AdaptableJobFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">protected</span> <span class="token class-name">Object</span> <span class="token function">createJobInstance</span><span class="token punctuation">(</span><span class="token class-name">TriggerFiredBundle</span> bundle<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Object</span> jobInstance <span class="token operator">=</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">createJobInstance</span><span class="token punctuation">(</span>bundle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                capableBeanFactory<span class="token punctuation">.</span><span class="token function">autowireBean</span><span class="token punctuation">(</span>jobInstance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> jobInstance<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">SchedulerFactoryBean</span> <span class="token function">schedulerFactoryBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SchedulerFactoryBean</span> schedulerFactoryBean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SchedulerFactoryBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        schedulerFactoryBean<span class="token punctuation">.</span><span class="token function">setJobFactory</span><span class="token punctuation">(</span>jobFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//延迟启动</span>
+        schedulerFactoryBean<span class="token punctuation">.</span><span class="token function">setStartupDelay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        schedulerFactoryBean<span class="token punctuation">.</span><span class="token function">setConfigLocation</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ClassPathResource</span><span class="token punctuation">(</span><span class="token string">&quot;/quartz.properties&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> schedulerFactoryBean<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Scheduler</span> <span class="token function">scheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">schedulerFactoryBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="job服务调用-quartzservice"><a href="#job服务调用-quartzservice" class="header-anchor">#</a> Job服务调用（QuartzService）</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>schedule</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>entity<span class="token punctuation">.</span></span><span class="token class-name">JobDataMap</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">MongoTemplate</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">StringUtils</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>text<span class="token punctuation">.</span></span><span class="token class-name">ParseException</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @ClassName JobController
+ * @Description job服务调用
+ * @Author guoshunfa
+ * @Date 2021/7/10 下午10:49
+ * @Version 1.0
+ **/</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QuartzService</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">MongoTemplate</span> mongoTemplate<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">Scheduler</span> scheduler<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 保存/修改job
+     * @param bean
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">saveJob</span><span class="token punctuation">(</span><span class="token class-name">JobDataMap</span> bean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">JobKey</span> jobKey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JobKey</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">JobDetail</span> jobDetail <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">getJobDetail</span><span class="token punctuation">(</span>jobKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>jobDetail <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                jobDetail <span class="token operator">=</span> <span class="token function">newJobDetail</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token class-name">Trigger</span> trigger <span class="token operator">=</span> <span class="token function">newCronTrigger</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>trigger <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                scheduler<span class="token punctuation">.</span><span class="token function">scheduleJob</span><span class="token punctuation">(</span>jobDetail<span class="token punctuation">,</span> trigger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">cronUpdate</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 移除job
+     * @param bean
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeJob</span><span class="token punctuation">(</span><span class="token class-name">JobDataMap</span> bean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">TriggerKey</span> key <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TriggerKey</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            scheduler<span class="token punctuation">.</span><span class="token function">pauseTrigger</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            scheduler<span class="token punctuation">.</span><span class="token function">unscheduleJob</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">JobKey</span> jobKey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JobKey</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            scheduler<span class="token punctuation">.</span><span class="token function">deleteJob</span><span class="token punctuation">(</span>jobKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SchedulerException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">pausedJob</span><span class="token punctuation">(</span><span class="token class-name">JobDataMap</span> bean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">isPaused</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                scheduler<span class="token punctuation">.</span><span class="token function">pauseTrigger</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TriggerKey</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                scheduler<span class="token punctuation">.</span><span class="token function">resumeTrigger</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TriggerKey</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SchedulerException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * cron 调整
+     * @param bean
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">cronUpdate</span><span class="token punctuation">(</span><span class="token class-name">JobDataMap</span> bean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">JobKey</span> jobKey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JobKey</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">JobDetail</span> quartzJob <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">getJobDetail</span><span class="token punctuation">(</span>jobKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>quartzJob <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//没有任务时创建任务并调度</span>
+                quartzJob <span class="token operator">=</span> <span class="token function">newJobDetail</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Trigger</span> trigger <span class="token operator">=</span> <span class="token function">newCronTrigger</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>trigger <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    scheduler<span class="token punctuation">.</span><span class="token function">scheduleJob</span><span class="token punctuation">(</span>quartzJob<span class="token punctuation">,</span> trigger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token comment">//重新调度</span>
+                <span class="token class-name">TriggerKey</span> triggerKey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TriggerKey</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Trigger</span> trigger <span class="token operator">=</span> <span class="token function">newCronTrigger</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                scheduler<span class="token punctuation">.</span><span class="token function">rescheduleJob</span><span class="token punctuation">(</span>triggerKey<span class="token punctuation">,</span> trigger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">JobDetail</span> <span class="token function">newJobDetail</span><span class="token punctuation">(</span><span class="token class-name">JobDataMap</span> bean<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InstantiationException</span><span class="token punctuation">,</span> <span class="token class-name">IllegalAccessException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">JobDetail</span> jobDetail <span class="token operator">=</span> <span class="token class-name">JobBuilder</span><span class="token punctuation">.</span><span class="token function">newJob</span><span class="token punctuation">(</span><span class="token class-name">JobAutoExe</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">withIdentity</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        jobDetail<span class="token punctuation">.</span><span class="token function">getJobDataMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;jobId&quot;</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//job实例执行前会将这些属性值设置进实例中，运行前根据id查询详情</span>
+        <span class="token keyword">return</span> jobDetail<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 根据调度设置决定使用cron还是毫秒数
+     *
+     * @param bean
+     * @return
+     * @throws ParseException
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">Trigger</span> <span class="token function">newCronTrigger</span><span class="token punctuation">(</span><span class="token class-name">JobDataMap</span> bean<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ParseException</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getCron</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token class-name">TriggerBuilder</span><span class="token punctuation">.</span><span class="token function">newTrigger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forJob</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">withIdentity</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getJobName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">withSchedule</span><span class="token punctuation">(</span><span class="token class-name">CronScheduleBuilder</span><span class="token punctuation">.</span><span class="token function">cronSchedule</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getCron</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="job实体类-jobdatamap"><a href="#job实体类-jobdatamap" class="header-anchor">#</a> Job实体类（JobDataMap）</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>entity</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>common<span class="token punctuation">.</span>base<span class="token punctuation">.</span></span><span class="token class-name">BaseEntity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">io<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">ApiModelProperty</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @ClassName JobData
+ * @Description job信息
+ * @Author guoshunfa
+ * @Date 2021/7/10 下午10:33
+ * @Version 1.0
+ **/</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JobDataMap</span> <span class="token keyword">extends</span> <span class="token class-name">BaseEntity</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">&quot;job名称&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> jobName<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">&quot;类名称&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> className<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">&quot;方法名称&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> methodName<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">&quot;cron规则&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> cron<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">&quot;任务状态，是否暂停。默认不暂停&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> paused <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="job服务调用-jobcontroller"><a href="#job服务调用-jobcontroller" class="header-anchor">#</a> Job服务调用（JobController）</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>web</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>entity<span class="token punctuation">.</span></span><span class="token class-name">JobDataMap</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>schedule<span class="token punctuation">.</span></span><span class="token class-name">QuartzService</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>client<span class="token punctuation">.</span>result<span class="token punctuation">.</span></span><span class="token class-name">DeleteResult</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>client<span class="token punctuation">.</span>result<span class="token punctuation">.</span></span><span class="token class-name">UpdateResult</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">io<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">ApiOperation</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">io<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">ApiParam</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">MongoTemplate</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>core<span class="token punctuation">.</span>query<span class="token punctuation">.</span></span><span class="token class-name">Criteria</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>core<span class="token punctuation">.</span>query<span class="token punctuation">.</span></span><span class="token class-name">Query</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>mongodb<span class="token punctuation">.</span>core<span class="token punctuation">.</span>query<span class="token punctuation">.</span></span><span class="token class-name">Update</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PostMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestBody</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @ClassName JobController
+ * @Description job服务调用
+ * @Author guoshunfa
+ * @Date 2021/7/11 上午12:58
+ * @Version 1.0
+ **/</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JobController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">MongoTemplate</span> mongoTemplate<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">QuartzService</span> quartzService<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/job/save&quot;</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;创建/修改job信息&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">JobDataMap</span> <span class="token function">saveJob</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">JobDataMap</span> jobData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">JobDataMap</span> data <span class="token operator">=</span> mongoTemplate<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>jobData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        quartzService<span class="token punctuation">.</span><span class="token function">saveJob</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> data<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/job/remove&quot;</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;删除job&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">DeleteResult</span> <span class="token function">removeJob</span><span class="token punctuation">(</span><span class="token annotation punctuation">@ApiParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">&quot;jobId&quot;</span><span class="token punctuation">,</span> required <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token class-name">String</span> jobId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">DeleteResult</span> deleteResult <span class="token operator">=</span> mongoTemplate<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">Query</span><span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token class-name">Criteria</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is</span><span class="token punctuation">(</span>jobId<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">JobDataMap</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">JobDataMap</span> data <span class="token operator">=</span> mongoTemplate<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>jobId<span class="token punctuation">,</span> <span class="token class-name">JobDataMap</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        quartzService<span class="token punctuation">.</span><span class="token function">removeJob</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> deleteResult<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/job/paused&quot;</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;暂停/运行job&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">UpdateResult</span> <span class="token function">pausedJob</span><span class="token punctuation">(</span>
+            <span class="token annotation punctuation">@ApiParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">&quot;jobId&quot;</span><span class="token punctuation">,</span> required <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token class-name">String</span> jobId
+            <span class="token punctuation">,</span> <span class="token annotation punctuation">@ApiParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">&quot;paused&quot;</span><span class="token punctuation">,</span> required <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token class-name">Boolean</span> paused<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">UpdateResult</span> updateResult <span class="token operator">=</span> mongoTemplate<span class="token punctuation">.</span><span class="token function">updateFirst</span><span class="token punctuation">(</span><span class="token class-name">Query</span><span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token class-name">Criteria</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is</span><span class="token punctuation">(</span>jobId<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token class-name">Update</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">&quot;paused&quot;</span><span class="token punctuation">,</span> paused<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">JobDataMap</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">JobDataMap</span> data <span class="token operator">=</span> mongoTemplate<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>jobId<span class="token punctuation">,</span> <span class="token class-name">JobDataMap</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        quartzService<span class="token punctuation">.</span><span class="token function">pausedJob</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> updateResult<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="测试job-testjob"><a href="#测试job-testjob" class="header-anchor">#</a> 测试Job（TestJob）</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>gsf<span class="token punctuation">.</span>job<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @ClassName TestJob
+ * @Description 测试job
+ * @Author guoshunfa
+ * @Date 2021/7/11 上午12:39
+ * @Version 1.0
+ **/</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestJob</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doJob</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;TestJob 测试成功&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/document-backup/assets/js/app.254c6552.js" defer></script><script src="/document-backup/assets/js/2.79453128.js" defer></script><script src="/document-backup/assets/js/23.d875e675.js" defer></script>
+  </body>
+</html>

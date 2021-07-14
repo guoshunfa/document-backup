@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>排序</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/document-backup/assets/css/0.styles.fd822481.css" as="style"><link rel="preload" href="/document-backup/assets/js/app.254c6552.js" as="script"><link rel="preload" href="/document-backup/assets/js/2.79453128.js" as="script"><link rel="preload" href="/document-backup/assets/js/40.b745d0ad.js" as="script"><link rel="prefetch" href="/document-backup/assets/js/10.6d81dbb4.js"><link rel="prefetch" href="/document-backup/assets/js/11.65dd06ee.js"><link rel="prefetch" href="/document-backup/assets/js/12.b58a21d6.js"><link rel="prefetch" href="/document-backup/assets/js/13.10afba91.js"><link rel="prefetch" href="/document-backup/assets/js/14.0105b222.js"><link rel="prefetch" href="/document-backup/assets/js/15.190fccfa.js"><link rel="prefetch" href="/document-backup/assets/js/16.cec8759f.js"><link rel="prefetch" href="/document-backup/assets/js/17.9e436fc8.js"><link rel="prefetch" href="/document-backup/assets/js/18.826c7fb8.js"><link rel="prefetch" href="/document-backup/assets/js/19.40719ded.js"><link rel="prefetch" href="/document-backup/assets/js/20.456d9bae.js"><link rel="prefetch" href="/document-backup/assets/js/21.aa8d0583.js"><link rel="prefetch" href="/document-backup/assets/js/22.bb78520a.js"><link rel="prefetch" href="/document-backup/assets/js/23.d875e675.js"><link rel="prefetch" href="/document-backup/assets/js/24.66ee9ac3.js"><link rel="prefetch" href="/document-backup/assets/js/25.38b4cfec.js"><link rel="prefetch" href="/document-backup/assets/js/26.0c5e213f.js"><link rel="prefetch" href="/document-backup/assets/js/27.c06dedcb.js"><link rel="prefetch" href="/document-backup/assets/js/28.72ea37f6.js"><link rel="prefetch" href="/document-backup/assets/js/29.4e7fb475.js"><link rel="prefetch" href="/document-backup/assets/js/3.c7057b78.js"><link rel="prefetch" href="/document-backup/assets/js/30.eeeb8950.js"><link rel="prefetch" href="/document-backup/assets/js/31.feffb4d3.js"><link rel="prefetch" href="/document-backup/assets/js/32.a2cca847.js"><link rel="prefetch" href="/document-backup/assets/js/33.3f0c0164.js"><link rel="prefetch" href="/document-backup/assets/js/34.9b3be093.js"><link rel="prefetch" href="/document-backup/assets/js/35.311c2c6f.js"><link rel="prefetch" href="/document-backup/assets/js/36.ad5f4fda.js"><link rel="prefetch" href="/document-backup/assets/js/37.f283498b.js"><link rel="prefetch" href="/document-backup/assets/js/38.b65d7a13.js"><link rel="prefetch" href="/document-backup/assets/js/39.58699e15.js"><link rel="prefetch" href="/document-backup/assets/js/4.188d788f.js"><link rel="prefetch" href="/document-backup/assets/js/41.b4a276de.js"><link rel="prefetch" href="/document-backup/assets/js/42.1b3f9e2e.js"><link rel="prefetch" href="/document-backup/assets/js/43.206ec506.js"><link rel="prefetch" href="/document-backup/assets/js/44.45fb8505.js"><link rel="prefetch" href="/document-backup/assets/js/45.85827b0d.js"><link rel="prefetch" href="/document-backup/assets/js/46.3ac3099c.js"><link rel="prefetch" href="/document-backup/assets/js/47.d7e92f86.js"><link rel="prefetch" href="/document-backup/assets/js/48.8554db36.js"><link rel="prefetch" href="/document-backup/assets/js/49.bbd0b2e8.js"><link rel="prefetch" href="/document-backup/assets/js/5.4408e878.js"><link rel="prefetch" href="/document-backup/assets/js/50.f8fb3a38.js"><link rel="prefetch" href="/document-backup/assets/js/51.93cc0796.js"><link rel="prefetch" href="/document-backup/assets/js/52.8fa819c9.js"><link rel="prefetch" href="/document-backup/assets/js/53.4f168de0.js"><link rel="prefetch" href="/document-backup/assets/js/54.99019715.js"><link rel="prefetch" href="/document-backup/assets/js/55.eb746759.js"><link rel="prefetch" href="/document-backup/assets/js/56.f8e0bdee.js"><link rel="prefetch" href="/document-backup/assets/js/57.870b543d.js"><link rel="prefetch" href="/document-backup/assets/js/58.09d20c58.js"><link rel="prefetch" href="/document-backup/assets/js/59.eb488819.js"><link rel="prefetch" href="/document-backup/assets/js/6.16f9ea1a.js"><link rel="prefetch" href="/document-backup/assets/js/60.a9ea941f.js"><link rel="prefetch" href="/document-backup/assets/js/61.90c4a54b.js"><link rel="prefetch" href="/document-backup/assets/js/62.5232f6f6.js"><link rel="prefetch" href="/document-backup/assets/js/63.d102e3de.js"><link rel="prefetch" href="/document-backup/assets/js/64.43a1b515.js"><link rel="prefetch" href="/document-backup/assets/js/65.404055b9.js"><link rel="prefetch" href="/document-backup/assets/js/66.05b596ac.js"><link rel="prefetch" href="/document-backup/assets/js/67.e2731dd6.js"><link rel="prefetch" href="/document-backup/assets/js/68.f254a894.js"><link rel="prefetch" href="/document-backup/assets/js/69.30a99512.js"><link rel="prefetch" href="/document-backup/assets/js/7.777cd971.js"><link rel="prefetch" href="/document-backup/assets/js/70.78e89862.js"><link rel="prefetch" href="/document-backup/assets/js/71.2dedef8d.js"><link rel="prefetch" href="/document-backup/assets/js/72.da587bdf.js"><link rel="prefetch" href="/document-backup/assets/js/73.041d1247.js"><link rel="prefetch" href="/document-backup/assets/js/74.581c41f0.js"><link rel="prefetch" href="/document-backup/assets/js/75.30d85df4.js"><link rel="prefetch" href="/document-backup/assets/js/8.1533424b.js"><link rel="prefetch" href="/document-backup/assets/js/9.9ce3d875.js">
+    <link rel="stylesheet" href="/document-backup/assets/css/0.styles.fd822481.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/document-backup/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" class="nav-link">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" class="nav-link">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>排序</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/document-backup/blog/Java/Common/Common-sort.html#java-8-comparator-列表排序" class="sidebar-link">Java 8 Comparator: 列表排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/document-backup/blog/Java/Common/Common-sort.html#_1-按字母顺序排序字符串列表" class="sidebar-link">1.按字母顺序排序字符串列表</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java/Common/Common-sort.html#_2-对整数列表进行排序" class="sidebar-link">2.对整数列表进行排序</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java/Common/Common-sort.html#_3-按字符串字段对列表进行排序" class="sidebar-link">3.按字符串字段对列表进行排序</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java/Common/Common-sort.html#_4-按double字段排序列表" class="sidebar-link">4.按Double字段排序列表</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java/Common/Common-sort.html#_5-使用自定义比较器对列表进行排序" class="sidebar-link">5.使用自定义比较器对列表进行排序</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java/Common/Common-sort.html#_6-使用比较器链对列表进行排序" class="sidebar-link">6.使用比较器链对列表进行排序</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="排序"><a href="#排序" class="header-anchor">#</a> 排序</h1> <blockquote><p>对数组和集合进行排序。</p></blockquote> <h2 id="java-8-comparator-列表排序"><a href="#java-8-comparator-列表排序" class="header-anchor">#</a> Java 8 Comparator: 列表排序</h2> <p>几个关于如何在Java 8中对List进行排序的示例。</p> <blockquote><p>默认排序规则：从低到高。</p> <p>可以通过反转函数（reversed）进行调整排序规则。</p></blockquote> <h3 id="_1-按字母顺序排序字符串列表"><a href="#_1-按字母顺序排序字符串列表" class="header-anchor">#</a> 1.按字母顺序排序字符串列表</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> cities <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+             <span class="token string">&quot;Milan&quot;</span><span class="token punctuation">,</span>
+             <span class="token string">&quot;london&quot;</span><span class="token punctuation">,</span>
+             <span class="token string">&quot;San Francisco&quot;</span><span class="token punctuation">,</span>
+             <span class="token string">&quot;Tokyo&quot;</span><span class="token punctuation">,</span>
+             <span class="token string">&quot;New Delhi&quot;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>cities<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//[Milan, london, San Francisco, Tokyo, New Delhi]</span>
+cities<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span>CASE_INSENSITIVE_ORDER<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>cities<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//[london, Milan, New Delhi, San Francisco, Tokyo]</span>
+cities<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">naturalOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>cities<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//[Milan, New Delhi, San Francisco, Tokyo, london]</span>
+</code></pre></div><p>为了更加突出显示<code>Comparator.naturalOrder()</code>(返回按照大小写字母排序的Comparator)和<code>String.CASE_INSENSITIVE_ORDER</code>(返回不区分大小写的Comparator)的区别，我们在'London'使用小写的'L'。</p> <p>基本上，在<code>Java 7</code>中，我们使用的<code>Collections.sort()</code>方法接受一个<code>List</code>参数，最终返回一个<code>Comparator</code>,而在<code>Java 8</code>中新的<code>List.sort()</code>方法，它接受<code>Comparator</code>参数。</p> <h3 id="_2-对整数列表进行排序"><a href="#_2-对整数列表进行排序" class="header-anchor">#</a> 2.对整数列表进行排序</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> numbers <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[6, 2, 1, 4, 9]</span>
+numbers<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">naturalOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[1, 2, 4, 6, 9]</span>
+</code></pre></div><h3 id="_3-按字符串字段对列表进行排序"><a href="#_3-按字符串字段对列表进行排序" class="header-anchor">#</a> 3.按字符串字段对列表进行排序</h3> <p>假设我们有<code>Movie</code>类，想按标题对列表进行排序。我们可以使用<code>Comparator.comparing()</code>并传递用于排序的字段——在本例中为<code>title</code>。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Movie</span><span class="token punctuation">&gt;</span></span> movies <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Lord of the rings&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Back to the future&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Carlito's way&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Pulp fiction&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">Movie</span><span class="token operator">::</span><span class="token function">getTitle</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>输出是:</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">Movie</span><span class="token punctuation">{</span>title<span class="token operator">=</span><span class="token string">'Back to the future'</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>title<span class="token operator">=</span><span class="token string">&quot;Carlito's way&quot;</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>title<span class="token operator">=</span><span class="token string">'Lord of the rings'</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>title<span class="token operator">=</span><span class="token string">'Pulp fiction'</span><span class="token punctuation">}</span>
+</code></pre></div><p>你可能已经注意到，我们没有通过比较器(Comparator),但List已正确排序，这是因为提取的字段title是String类型，而String实现了<code>Comparable</code>接口。
+如果你查看<code>Comparator.comparison()</code>的实现，你将看到它对提取的键调用<code>compareTo</code>方法。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> <span class="token operator">&amp;</span> <span class="token class-name">Serializable</span><span class="token punctuation">)</span>
+                <span class="token punctuation">(</span>c1<span class="token punctuation">,</span> c2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> keyExtractor<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>c1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>keyExtractor<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>c2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="_4-按double字段排序列表"><a href="#_4-按double字段排序列表" class="header-anchor">#</a> 4.按Double字段排序列表</h3> <p>以类似的方式，可以使用<code>Comparator.comparingDouble()</code>来比较<code>double</code>值。在示例中，我们希望通过评级从高到低来对电影列表进行排序。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Movie</span><span class="token punctuation">&gt;</span></span> movies <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Lord of the rings&quot;</span><span class="token punctuation">,</span> <span class="token number">8.8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Back to the future&quot;</span><span class="token punctuation">,</span> <span class="token number">8.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Carlito's way&quot;</span><span class="token punctuation">,</span> <span class="token number">7.9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Pulp fiction&quot;</span><span class="token punctuation">,</span> <span class="token number">8.9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparingDouble</span><span class="token punctuation">(</span><span class="token class-name">Movie</span><span class="token operator">::</span><span class="token function">getRating</span><span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span><span class="token function">reversed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>我们使用反转函数(<code>reversed</code>)来反转**(默认从低到高的自然排序)**，<code>Comparator.comparingDouble()</code> 底层使用<code>Double.compare()</code>实现。如果需要比较<code>int</code>或<code>long</code>，可以分别使用<code>comparisonInt()</code>和<code>comparisonLong()</code>。</p> <h3 id="_5-使用自定义比较器对列表进行排序"><a href="#_5-使用自定义比较器对列表进行排序" class="header-anchor">#</a> 5.使用自定义比较器对列表进行排序</h3> <p>在前面的例子中，没有指定任何<code>Comparator</code>，因为没有必要。现在让我们看一个自定义<code>Comparator</code>的例子。
+我们的<code>Movie</code>类有一个新字段——'starred'。使用第三个构造函数设置参数。在示例中，我们要对列表进行排序，以便在列表顶部显示已加星标的电影。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Movie</span><span class="token punctuation">&gt;</span></span> movies <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Lord of the rings&quot;</span><span class="token punctuation">,</span> <span class="token number">8.8</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Back to the future&quot;</span><span class="token punctuation">,</span> <span class="token number">8.5</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Carlito's way&quot;</span><span class="token punctuation">,</span> <span class="token number">7.9</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Pulp fiction&quot;</span><span class="token punctuation">,</span> <span class="token number">8.9</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Movie</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">Movie</span> m1<span class="token punctuation">,</span> <span class="token class-name">Movie</span> m2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>m1<span class="token punctuation">.</span><span class="token function">getStarred</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> m2<span class="token punctuation">.</span><span class="token function">getStarred</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> m1<span class="token punctuation">.</span><span class="token function">getStarred</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>结果是:</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'Lord of the rings'</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">8.8</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">&quot;Carlito's way&quot;</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">7.9</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'Back to the future'</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">8.5</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'Pulp fiction'</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">8.9</span><span class="token punctuation">}</span>
+</code></pre></div><p>当然，我们可以使用<code>lambda</code>表达式而不是匿名类(<code>Anonymous class</code>)，如下所示:</p> <div class="language-java extra-class"><pre class="language-java"><code>movies<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m1<span class="token punctuation">,</span> m2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>m1<span class="token punctuation">.</span><span class="token function">getStarred</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> m2<span class="token punctuation">.</span><span class="token function">getStarred</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> m1<span class="token punctuation">.</span><span class="token function">getStarred</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>也可以使用<code>Comparator.comparing()</code>:</p> <div class="language-java extra-class"><pre class="language-java"><code>movies<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">Movie</span><span class="token operator">::</span><span class="token function">getStarred</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>star1<span class="token punctuation">,</span> star2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>star1 <span class="token operator">==</span> star2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> star1 <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>在后面的示例中，<code>Comparator.comparing()</code>接受用于排序的键作为第一个参数，并将<code>Comparator</code>作为第二个参数，该<code>Comparator</code>使用提取的键进行比较。<code>star1</code>和<code>star2</code>是布尔值，分别代表<code>m1.getStarred()</code>和<code>m2.getStarred()</code>。</p> <h3 id="_6-使用比较器链对列表进行排序"><a href="#_6-使用比较器链对列表进行排序" class="header-anchor">#</a> 6.使用比较器链对列表进行排序</h3> <p>最后一个示例中，我们希望将已加星标的电影放在顶部，然后按评分排序。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Movie</span><span class="token punctuation">&gt;</span></span> movies <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Lord of the rings&quot;</span><span class="token punctuation">,</span> <span class="token number">8.8</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Back to the future&quot;</span><span class="token punctuation">,</span> <span class="token number">8.5</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Carlito's way&quot;</span><span class="token punctuation">,</span> <span class="token number">7.9</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">Movie</span><span class="token punctuation">(</span><span class="token string">&quot;Pulp fiction&quot;</span><span class="token punctuation">,</span> <span class="token number">8.9</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">Movie</span><span class="token operator">::</span><span class="token function">getStarred</span><span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span><span class="token function">reversed</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span><span class="token function">thenComparing</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">Movie</span><span class="token operator">::</span><span class="token function">getRating</span><span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span><span class="token function">reversed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+movies<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>输出是:</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'Lord of the rings'</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">8.8</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">&quot;Carlito's way&quot;</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">7.9</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'Pulp fiction'</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">8.9</span><span class="token punctuation">}</span>
+<span class="token class-name">Movie</span><span class="token punctuation">{</span>starred<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'Back to the future'</span><span class="token punctuation">,</span> rating<span class="token operator">=</span><span class="token number">8.5</span><span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/document-backup/assets/js/app.254c6552.js" defer></script><script src="/document-backup/assets/js/2.79453128.js" defer></script><script src="/document-backup/assets/js/40.b745d0ad.js" defer></script>
+  </body>
+</html>

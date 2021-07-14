@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>事务</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/document-backup/assets/css/0.styles.fd822481.css" as="style"><link rel="preload" href="/document-backup/assets/js/app.254c6552.js" as="script"><link rel="preload" href="/document-backup/assets/js/2.79453128.js" as="script"><link rel="preload" href="/document-backup/assets/js/26.0c5e213f.js" as="script"><link rel="prefetch" href="/document-backup/assets/js/10.6d81dbb4.js"><link rel="prefetch" href="/document-backup/assets/js/11.65dd06ee.js"><link rel="prefetch" href="/document-backup/assets/js/12.b58a21d6.js"><link rel="prefetch" href="/document-backup/assets/js/13.10afba91.js"><link rel="prefetch" href="/document-backup/assets/js/14.0105b222.js"><link rel="prefetch" href="/document-backup/assets/js/15.190fccfa.js"><link rel="prefetch" href="/document-backup/assets/js/16.cec8759f.js"><link rel="prefetch" href="/document-backup/assets/js/17.9e436fc8.js"><link rel="prefetch" href="/document-backup/assets/js/18.826c7fb8.js"><link rel="prefetch" href="/document-backup/assets/js/19.40719ded.js"><link rel="prefetch" href="/document-backup/assets/js/20.456d9bae.js"><link rel="prefetch" href="/document-backup/assets/js/21.aa8d0583.js"><link rel="prefetch" href="/document-backup/assets/js/22.bb78520a.js"><link rel="prefetch" href="/document-backup/assets/js/23.d875e675.js"><link rel="prefetch" href="/document-backup/assets/js/24.66ee9ac3.js"><link rel="prefetch" href="/document-backup/assets/js/25.38b4cfec.js"><link rel="prefetch" href="/document-backup/assets/js/27.c06dedcb.js"><link rel="prefetch" href="/document-backup/assets/js/28.72ea37f6.js"><link rel="prefetch" href="/document-backup/assets/js/29.4e7fb475.js"><link rel="prefetch" href="/document-backup/assets/js/3.c7057b78.js"><link rel="prefetch" href="/document-backup/assets/js/30.eeeb8950.js"><link rel="prefetch" href="/document-backup/assets/js/31.feffb4d3.js"><link rel="prefetch" href="/document-backup/assets/js/32.a2cca847.js"><link rel="prefetch" href="/document-backup/assets/js/33.3f0c0164.js"><link rel="prefetch" href="/document-backup/assets/js/34.9b3be093.js"><link rel="prefetch" href="/document-backup/assets/js/35.311c2c6f.js"><link rel="prefetch" href="/document-backup/assets/js/36.ad5f4fda.js"><link rel="prefetch" href="/document-backup/assets/js/37.f283498b.js"><link rel="prefetch" href="/document-backup/assets/js/38.b65d7a13.js"><link rel="prefetch" href="/document-backup/assets/js/39.58699e15.js"><link rel="prefetch" href="/document-backup/assets/js/4.188d788f.js"><link rel="prefetch" href="/document-backup/assets/js/40.b745d0ad.js"><link rel="prefetch" href="/document-backup/assets/js/41.b4a276de.js"><link rel="prefetch" href="/document-backup/assets/js/42.1b3f9e2e.js"><link rel="prefetch" href="/document-backup/assets/js/43.206ec506.js"><link rel="prefetch" href="/document-backup/assets/js/44.45fb8505.js"><link rel="prefetch" href="/document-backup/assets/js/45.85827b0d.js"><link rel="prefetch" href="/document-backup/assets/js/46.3ac3099c.js"><link rel="prefetch" href="/document-backup/assets/js/47.d7e92f86.js"><link rel="prefetch" href="/document-backup/assets/js/48.8554db36.js"><link rel="prefetch" href="/document-backup/assets/js/49.bbd0b2e8.js"><link rel="prefetch" href="/document-backup/assets/js/5.4408e878.js"><link rel="prefetch" href="/document-backup/assets/js/50.f8fb3a38.js"><link rel="prefetch" href="/document-backup/assets/js/51.93cc0796.js"><link rel="prefetch" href="/document-backup/assets/js/52.8fa819c9.js"><link rel="prefetch" href="/document-backup/assets/js/53.4f168de0.js"><link rel="prefetch" href="/document-backup/assets/js/54.99019715.js"><link rel="prefetch" href="/document-backup/assets/js/55.eb746759.js"><link rel="prefetch" href="/document-backup/assets/js/56.f8e0bdee.js"><link rel="prefetch" href="/document-backup/assets/js/57.870b543d.js"><link rel="prefetch" href="/document-backup/assets/js/58.09d20c58.js"><link rel="prefetch" href="/document-backup/assets/js/59.eb488819.js"><link rel="prefetch" href="/document-backup/assets/js/6.16f9ea1a.js"><link rel="prefetch" href="/document-backup/assets/js/60.a9ea941f.js"><link rel="prefetch" href="/document-backup/assets/js/61.90c4a54b.js"><link rel="prefetch" href="/document-backup/assets/js/62.5232f6f6.js"><link rel="prefetch" href="/document-backup/assets/js/63.d102e3de.js"><link rel="prefetch" href="/document-backup/assets/js/64.43a1b515.js"><link rel="prefetch" href="/document-backup/assets/js/65.404055b9.js"><link rel="prefetch" href="/document-backup/assets/js/66.05b596ac.js"><link rel="prefetch" href="/document-backup/assets/js/67.e2731dd6.js"><link rel="prefetch" href="/document-backup/assets/js/68.f254a894.js"><link rel="prefetch" href="/document-backup/assets/js/69.30a99512.js"><link rel="prefetch" href="/document-backup/assets/js/7.777cd971.js"><link rel="prefetch" href="/document-backup/assets/js/70.78e89862.js"><link rel="prefetch" href="/document-backup/assets/js/71.2dedef8d.js"><link rel="prefetch" href="/document-backup/assets/js/72.da587bdf.js"><link rel="prefetch" href="/document-backup/assets/js/73.041d1247.js"><link rel="prefetch" href="/document-backup/assets/js/74.581c41f0.js"><link rel="prefetch" href="/document-backup/assets/js/75.30d85df4.js"><link rel="prefetch" href="/document-backup/assets/js/8.1533424b.js"><link rel="prefetch" href="/document-backup/assets/js/9.9ce3d875.js">
+    <link rel="stylesheet" href="/document-backup/assets/css/0.styles.fd822481.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/document-backup/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" class="nav-link">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" class="nav-link">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>事务</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务" class="sidebar-link">事务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务操作-事务概念" class="sidebar-link">事务操作（事务概念）</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务操作-搭建事务操作环境" class="sidebar-link">事务操作（搭建事务操作环境）</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务操作-spring-事务管理介绍" class="sidebar-link">事务操作（ Spring 事务管理介绍）</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务操作-注解声明式事务管理" class="sidebar-link">事务操作（注解声明式事务管理）</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务操作-声明式事务管理参数配置" class="sidebar-link">事务操作（声明式事务管理参数配置）</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务操作-xml-声明式事务管理" class="sidebar-link">事务操作（ XML 声明式事务管理）</a></li><li class="sidebar-sub-header"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Transaction.html#事务操作-完全注解声明式事务管理" class="sidebar-link">事务操作（完全注解声明式事务管理）</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="事务"><a href="#事务" class="header-anchor">#</a> 事务</h2> <h3 id="事务操作-事务概念"><a href="#事务操作-事务概念" class="header-anchor">#</a> 事务操作（事务概念）</h3> <p><strong>1</strong> 、什么事务
+（ 1 ）事务是数据库操作最基本单元，逻辑上一组操作，要么都成功，如果有一个失败所有操
+作都失败
+（ 2 ）典型场景：银行转账</p> <ul><li>lucy 转账 100 元 给mary</li> <li>lucy少 100 ，mary多 100</li></ul> <p><strong>2</strong> 、事务四个特性（ <strong>ACID</strong> ）
+（ 1 ）原子性
+（ 2 ）一致性
+（ 3 ）隔离性
+（ 4 ）持久性</p> <h3 id="事务操作-搭建事务操作环境"><a href="#事务操作-搭建事务操作环境" class="header-anchor">#</a> 事务操作（搭建事务操作环境）</h3> <p><strong>1</strong> 、创建数据库表，添加记录</p> <p><strong>2</strong> 、创建 <strong>service</strong> ，搭建 <strong>dao</strong> ，完成对象创建和注入关系
+（ 1 ）service注入dao，在dao注入JdbcTemplate，在JdbcTemplate注入DataSource</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+<span class="token comment">//注入dao</span>
+<span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">UserDao</span> userDao<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Repository</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserDaoImpl</span> <span class="token keyword">implements</span> <span class="token class-name">UserDao</span> <span class="token punctuation">{</span>
+<span class="token annotation punctuation">@Autowired</span>
+
+
+<span class="token keyword">private</span> <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">*</span><span class="token operator">*</span><span class="token number">3</span><span class="token operator">*</span><span class="token operator">*</span> 、在 <span class="token operator">*</span><span class="token operator">*</span>dao<span class="token operator">*</span><span class="token operator">*</span> 创建两个方法：多钱和少钱的方法，在 <span class="token operator">*</span><span class="token operator">*</span>service<span class="token operator">*</span><span class="token operator">*</span> 创建方法（转账的方法）
+<span class="token annotation punctuation">@Repository</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserDaoImpl</span> <span class="token keyword">implements</span> <span class="token class-name">UserDao</span> <span class="token punctuation">{</span>
+
+<span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
+
+<span class="token comment">//lucy转账 100 给mary</span>
+<span class="token comment">//少钱</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reduceMoney</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">&quot;update t_account set money=money-? where username=?&quot;</span><span class="token punctuation">;</span>
+jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token number">100</span> <span class="token punctuation">,</span><span class="token string">&quot;lucy&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//多钱</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addMoney</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">&quot;update t_account set money=money+? where username=?&quot;</span><span class="token punctuation">;</span>
+jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token number">100</span> <span class="token punctuation">,</span><span class="token string">&quot;mary&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+<span class="token comment">//注入dao</span>
+<span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">UserDao</span> userDao<span class="token punctuation">;</span>
+
+<span class="token comment">//转账的方法</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accountMoney</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment">//lucy少 100</span>
+userDao<span class="token punctuation">.</span><span class="token function">reduceMoney</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//mary多 100</span>
+userDao<span class="token punctuation">.</span><span class="token function">addMoney</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>4</strong> 、上面代码，如果正常执行没有问题的，但是如果代码执行过程中出现异常，有问题</p> <p>（ 1 ）上面问题如何解决呢？</p> <ul><li>使用事务进行解决</li></ul> <p>（ 2 ）事务操作过程</p> <h3 id="事务操作-spring-事务管理介绍"><a href="#事务操作-spring-事务管理介绍" class="header-anchor">#</a> 事务操作（ Spring 事务管理介绍）</h3> <p><strong>1</strong> 、事务添加到 <strong>JavaEE</strong> 三层结构里面 <strong>Service</strong> 层（业务逻辑层）</p> <p><strong>2</strong> 、在 <strong>Spring</strong> 进行事务管理操作
+（ <strong>1</strong> ）有两种方式：编程式事务管理和声明式事务管理（使用）</p> <p><strong>3</strong> 、声明式事务管理
+（ <strong>1</strong> ）基于注解方式（使用）
+（ 2 ）基于xml配置文件方式</p> <p><strong>4</strong> 、在 <strong>Spring</strong> 进行声明式事务管理，底层使用 <strong>AOP</strong> 原理</p> <p><strong>5</strong> 、 <strong>Spring</strong> 事务管理 <strong>API</strong>
+（ 1 ）提供一个接口，代表事务管理器，这个接口针对不同的框架提供不同的实现类</p> <h3 id="事务操作-注解声明式事务管理"><a href="#事务操作-注解声明式事务管理" class="header-anchor">#</a> 事务操作（注解声明式事务管理）</h3> <p><strong>1</strong> 、在 <strong>spring</strong> 配置文件配置事务管理器</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!--创建事务管理器--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>transactionManager<span class="token punctuation">&quot;</span></span>
+<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>org.springframework.jdbc.datasource.DataSourceTransactionManager<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--注入数据源--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dataSource<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dataSource<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>2 、在 <strong>spring</strong> 配置文件，开启事务注解
+（ 1 ）在spring配置文件引入名称空间 tx</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://www.springframework.org/schema/beans<span class="token punctuation">&quot;</span></span>
+<span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">&quot;</span></span>
+<span class="token attr-name"><span class="token namespace">xmlns:</span>context</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://www.springframework.org/schema/context<span class="token punctuation">&quot;</span></span>
+<span class="token attr-name"><span class="token namespace">xmlns:</span>aop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://www.springframework.org/schema/aop<span class="token punctuation">&quot;</span></span>
+<span class="token attr-name"><span class="token namespace">xmlns:</span>tx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://www.springframework.org/schema/tx<span class="token punctuation">&quot;</span></span>
+<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://www.springframework.org/schema/beans
+[http://www.springframework.org/schema/beans/spring-beans.xsd](http://www.springframework.org/schema/beans/spring-beans.xsd)
+[http://www.springframework.org/schema/context](http://www.springframework.org/schema/context)
+[http://www.springframework.org/schema/context/spring-context.xsd](http://www.springframework.org/schema/context/spring-context.xsd)
+[http://www.springframework.org/schema/aop](http://www.springframework.org/schema/aop)
+[http://www.springframework.org/schema/aop/spring-aop.xsd](http://www.springframework.org/schema/aop/spring-aop.xsd)
+
+[http://www.springframework.org/schema/tx](http://www.springframework.org/schema/tx)
+[http://www.springframework.org/schema/tx/spring-tx.xsd<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>](http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;)
+</code></pre></div><p>（ 2 ）开启事务注解</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!--开启事务注解--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">tx:</span>annotation-driven</span> <span class="token attr-name">transaction-</span>
+<span class="token attr-name">manager</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>transactionManager<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">tx:</span>annotation-driven</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><strong>3</strong> 、在 <strong>service</strong> 类上面（或者 <strong>service</strong> 类里面方法上面）添加事务注解
+（ 1 ）@Transactional，这个注解添加到类上面，也可以添加方法上面
+（ 2 ）如果把这个注解添加类上面，这个类里面所有的方法都添加事务
+（ 3 ）如果把这个注解添加方法上面，为这个方法添加事务</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@Transactional</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+</code></pre></div><h3 id="事务操作-声明式事务管理参数配置"><a href="#事务操作-声明式事务管理参数配置" class="header-anchor">#</a> 事务操作（声明式事务管理参数配置）</h3> <p><strong>1</strong> 、在 <strong>service</strong> 类上面添加注解 <strong>@Transactional</strong> ，在这个注解里面可以配置事务相关参数</p> <p><strong>2</strong> 、 <strong>propagation</strong> ：事务传播行为
+（ <strong>1</strong> ）多事务方法直接进行调用，这个过程中事务 是如何进行管理的</p> <p><strong>3</strong> 、 <strong>ioslation</strong> ：事务隔离级别
+（ 1 ）事务有特性成为隔离性，多事务操作之间不会产生影响。不考虑隔离性产生很多问题
+（ 2 ）有三个读问题：脏读、不可重复读、虚（幻）读
+（ 3 ）脏读：一个未提交事务读取到另一个未提交事务的数据</p> <p>（ 4 ）不可重复读：一个未提交事务读取到另一提交事务修改数据</p> <p>（ 5 ）虚读：一个未提交事务读取到另一提交事务添加数据</p> <p>（ 6 ）解决：通过设置事务隔离级别，解决读问题</p> <p><strong>4</strong> 、 <strong>timeout</strong> ：超时时间
+（ 1 ）事务需要在一定时间内进行提交，如果不提交进行回滚
+（ 2 ）默认值是 - 1 ，设置时间以秒单位进行计算</p> <p><strong>5</strong> 、 <strong>readOnly</strong> ：是否只读
+（ 1 ）读：查询操作，写：添加修改删除操作
+（ 2 ）readOnly默认值false，表示可以查询，可以添加修改删除操作
+（ 3 ）设置readOnly值是true，设置成true之后，只能查询</p> <p><strong>6</strong> 、 <strong>rollbackFor</strong> ：回滚
+（ 1 ）设置出现哪些异常进行事务回滚</p> <p><strong>7</strong> 、 <strong>noRollbackFor</strong> ：不回滚
+（ 1 ）设置出现哪些异常不进行事务回滚</p> <h3 id="事务操作-xml-声明式事务管理"><a href="#事务操作-xml-声明式事务管理" class="header-anchor">#</a> 事务操作（ XML 声明式事务管理）</h3> <p><strong>1</strong> 、在 <strong>spring</strong> 配置文件中进行配置
+第一步 配置事务管理器
+第二步 配置通知</p> <p>第三步 配置切入点和切面</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- 1 创建事务管理器--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>transactionManager<span class="token punctuation">&quot;</span></span>
+<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>org.springframework.jdbc.datasource.DataSourceTransactionManager<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--注入数据源--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dataSource<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dataSource<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- 2 配置通知--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">tx:</span>advice</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>txadvice<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--配置事务参数--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">tx:</span>attributes</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--指定哪种规则的方法上面添加事务--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">tx:</span>method</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>accountMoney<span class="token punctuation">&quot;</span></span> <span class="token attr-name">propagation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>REQUIRED<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token comment">&lt;!--&lt;tx:method name=&quot;account*&quot;/&gt;--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">tx:</span>attributes</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">tx:</span>advice</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- 3 配置切入点和切面--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">aop:</span>config</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--配置切入点--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">aop:</span>pointcut</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>pt<span class="token punctuation">&quot;</span></span> <span class="token attr-name">expression</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>execution(*
+com.atguigu.spring5.service.UserService.*(..))<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token comment">&lt;!--配置切面--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">aop:</span>advisor</span> <span class="token attr-name">advice-ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>txadvice<span class="token punctuation">&quot;</span></span> <span class="token attr-name">pointcut-ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>pt<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">aop:</span>config</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="事务操作-完全注解声明式事务管理"><a href="#事务操作-完全注解声明式事务管理" class="header-anchor">#</a> 事务操作（完全注解声明式事务管理）</h3> <p><strong>1</strong> 、创建配置类，使用配置类替代 <strong>xml</strong> 配置文件</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span> <span class="token comment">//配置类</span>
+<span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>basePackages <span class="token operator">=</span> <span class="token string">&quot;com.atguigu&quot;</span><span class="token punctuation">)</span> <span class="token comment">//组件扫描</span>
+<span class="token annotation punctuation">@EnableTransactionManagement</span> <span class="token comment">//开启事务</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TxConfig</span> <span class="token punctuation">{</span>
+  <span class="token comment">//创建数据库连接池</span>
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token keyword">public</span> <span class="token class-name">DruidDataSource</span> <span class="token function">getDruidDataSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">DruidDataSource</span> dataSource <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DruidDataSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dataSource<span class="token punctuation">.</span><span class="token function">setDriverClassName</span><span class="token punctuation">(</span><span class="token string">&quot;com.mysql.jdbc.Driver&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dataSource<span class="token punctuation">.</span><span class="token function">setUrl</span><span class="token punctuation">(</span><span class="token string">&quot;jdbc:mysql:///user_db&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dataSource<span class="token punctuation">.</span><span class="token function">setUsername</span><span class="token punctuation">(</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dataSource<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> dataSource<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">//创建JdbcTemplate对象</span>
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token keyword">public</span> <span class="token class-name">JdbcTemplate</span> <span class="token function">getJdbcTemplate</span><span class="token punctuation">(</span><span class="token class-name">DataSource</span> dataSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//到ioc容器中根据类型找到dataSource</span>
+    <span class="token class-name">JdbcTemplate</span> jdbcTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JdbcTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//注入dataSource</span>
+    jdbcTemplate<span class="token punctuation">.</span><span class="token function">setDataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> jdbcTemplate<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">//创建事务管理器</span>
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token keyword">public</span> <span class="token class-name">DataSourceTransactionManager</span>
+    <span class="token function">getDataSourceTransactionManager</span><span class="token punctuation">(</span><span class="token class-name">DataSource</span> dataSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">DataSourceTransactionManager</span> transactionManager <span class="token operator">=</span> <span class="token keyword">new</span>
+    <span class="token class-name">DataSourceTransactionManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    transactionManager<span class="token punctuation">.</span><span class="token function">setDataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> transactionManager<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/document-backup/assets/js/app.254c6552.js" defer></script><script src="/document-backup/assets/js/2.79453128.js" defer></script><script src="/document-backup/assets/js/26.0c5e213f.js" defer></script>
+  </body>
+</html>

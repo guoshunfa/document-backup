@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mysql 控制台使用说明</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/document-backup/assets/css/0.styles.fd822481.css" as="style"><link rel="preload" href="/document-backup/assets/js/app.254c6552.js" as="script"><link rel="preload" href="/document-backup/assets/js/2.79453128.js" as="script"><link rel="preload" href="/document-backup/assets/js/17.9e436fc8.js" as="script"><link rel="prefetch" href="/document-backup/assets/js/10.6d81dbb4.js"><link rel="prefetch" href="/document-backup/assets/js/11.65dd06ee.js"><link rel="prefetch" href="/document-backup/assets/js/12.b58a21d6.js"><link rel="prefetch" href="/document-backup/assets/js/13.10afba91.js"><link rel="prefetch" href="/document-backup/assets/js/14.0105b222.js"><link rel="prefetch" href="/document-backup/assets/js/15.190fccfa.js"><link rel="prefetch" href="/document-backup/assets/js/16.cec8759f.js"><link rel="prefetch" href="/document-backup/assets/js/18.826c7fb8.js"><link rel="prefetch" href="/document-backup/assets/js/19.40719ded.js"><link rel="prefetch" href="/document-backup/assets/js/20.456d9bae.js"><link rel="prefetch" href="/document-backup/assets/js/21.aa8d0583.js"><link rel="prefetch" href="/document-backup/assets/js/22.bb78520a.js"><link rel="prefetch" href="/document-backup/assets/js/23.d875e675.js"><link rel="prefetch" href="/document-backup/assets/js/24.66ee9ac3.js"><link rel="prefetch" href="/document-backup/assets/js/25.38b4cfec.js"><link rel="prefetch" href="/document-backup/assets/js/26.0c5e213f.js"><link rel="prefetch" href="/document-backup/assets/js/27.c06dedcb.js"><link rel="prefetch" href="/document-backup/assets/js/28.72ea37f6.js"><link rel="prefetch" href="/document-backup/assets/js/29.4e7fb475.js"><link rel="prefetch" href="/document-backup/assets/js/3.c7057b78.js"><link rel="prefetch" href="/document-backup/assets/js/30.eeeb8950.js"><link rel="prefetch" href="/document-backup/assets/js/31.feffb4d3.js"><link rel="prefetch" href="/document-backup/assets/js/32.a2cca847.js"><link rel="prefetch" href="/document-backup/assets/js/33.3f0c0164.js"><link rel="prefetch" href="/document-backup/assets/js/34.9b3be093.js"><link rel="prefetch" href="/document-backup/assets/js/35.311c2c6f.js"><link rel="prefetch" href="/document-backup/assets/js/36.ad5f4fda.js"><link rel="prefetch" href="/document-backup/assets/js/37.f283498b.js"><link rel="prefetch" href="/document-backup/assets/js/38.b65d7a13.js"><link rel="prefetch" href="/document-backup/assets/js/39.58699e15.js"><link rel="prefetch" href="/document-backup/assets/js/4.188d788f.js"><link rel="prefetch" href="/document-backup/assets/js/40.b745d0ad.js"><link rel="prefetch" href="/document-backup/assets/js/41.b4a276de.js"><link rel="prefetch" href="/document-backup/assets/js/42.1b3f9e2e.js"><link rel="prefetch" href="/document-backup/assets/js/43.206ec506.js"><link rel="prefetch" href="/document-backup/assets/js/44.45fb8505.js"><link rel="prefetch" href="/document-backup/assets/js/45.85827b0d.js"><link rel="prefetch" href="/document-backup/assets/js/46.3ac3099c.js"><link rel="prefetch" href="/document-backup/assets/js/47.d7e92f86.js"><link rel="prefetch" href="/document-backup/assets/js/48.8554db36.js"><link rel="prefetch" href="/document-backup/assets/js/49.bbd0b2e8.js"><link rel="prefetch" href="/document-backup/assets/js/5.4408e878.js"><link rel="prefetch" href="/document-backup/assets/js/50.f8fb3a38.js"><link rel="prefetch" href="/document-backup/assets/js/51.93cc0796.js"><link rel="prefetch" href="/document-backup/assets/js/52.8fa819c9.js"><link rel="prefetch" href="/document-backup/assets/js/53.4f168de0.js"><link rel="prefetch" href="/document-backup/assets/js/54.99019715.js"><link rel="prefetch" href="/document-backup/assets/js/55.eb746759.js"><link rel="prefetch" href="/document-backup/assets/js/56.f8e0bdee.js"><link rel="prefetch" href="/document-backup/assets/js/57.870b543d.js"><link rel="prefetch" href="/document-backup/assets/js/58.09d20c58.js"><link rel="prefetch" href="/document-backup/assets/js/59.eb488819.js"><link rel="prefetch" href="/document-backup/assets/js/6.16f9ea1a.js"><link rel="prefetch" href="/document-backup/assets/js/60.a9ea941f.js"><link rel="prefetch" href="/document-backup/assets/js/61.90c4a54b.js"><link rel="prefetch" href="/document-backup/assets/js/62.5232f6f6.js"><link rel="prefetch" href="/document-backup/assets/js/63.d102e3de.js"><link rel="prefetch" href="/document-backup/assets/js/64.43a1b515.js"><link rel="prefetch" href="/document-backup/assets/js/65.404055b9.js"><link rel="prefetch" href="/document-backup/assets/js/66.05b596ac.js"><link rel="prefetch" href="/document-backup/assets/js/67.e2731dd6.js"><link rel="prefetch" href="/document-backup/assets/js/68.f254a894.js"><link rel="prefetch" href="/document-backup/assets/js/69.30a99512.js"><link rel="prefetch" href="/document-backup/assets/js/7.777cd971.js"><link rel="prefetch" href="/document-backup/assets/js/70.78e89862.js"><link rel="prefetch" href="/document-backup/assets/js/71.2dedef8d.js"><link rel="prefetch" href="/document-backup/assets/js/72.da587bdf.js"><link rel="prefetch" href="/document-backup/assets/js/73.041d1247.js"><link rel="prefetch" href="/document-backup/assets/js/74.581c41f0.js"><link rel="prefetch" href="/document-backup/assets/js/75.30d85df4.js"><link rel="prefetch" href="/document-backup/assets/js/8.1533424b.js"><link rel="prefetch" href="/document-backup/assets/js/9.9ce3d875.js">
+    <link rel="stylesheet" href="/document-backup/assets/css/0.styles.fd822481.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/document-backup/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          接口设计
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/Interface/" class="nav-link">
+  接口定义
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Fastjson
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Use.html" class="nav-link">
+  Fastjson 使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Serialize.html" class="nav-link">
+  Fastjson 自定义序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-Deserialize.html" class="nav-link">
+  Fastjson 自定义反序列化
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-SerializerFeature.html" class="nav-link">
+  Fastjson SerializerFeature特性的使用
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java/FastJson/Fastjson-JSONField-JSONType.html" class="nav-link">
+  Fastjson JSONField与JSONType注解的使用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          @ @
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/java/Java-Toolkit/" class="nav-link">
+  工具包
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java 框架/组件" class="dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java 框架/组件" class="mobile-dropdown-title"><span class="title">Java 框架/组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          SpringBoot
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Init.html" class="nav-link">
+  SpringBoot 项目搭建
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-annotation.html" class="nav-link">
+  SpringBoot 注解使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/SpringBoot/SpringBoot-Pom.html" class="nav-link">
+  SpringBoot pom文件介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Event.html" class="nav-link">
+  Spring Event
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Spring/Spring-Validator.html" class="nav-link">
+  Spring 校验器（Validator）
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Quartz
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://blog.csdn.net/ThinkWon/article/details/109936696" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Quartz 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Log
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.cnblogs.com/WUXIAOCHANG/p/11024092.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Log 介绍
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Database.html" class="nav-link">
+  Springboot集成Quartz并持久化到Mysql
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Quartz/Quartz-Up.html" class="nav-link">
+  Quart up up up
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Tomcat
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Init.html" class="nav-link">
+  Tomcat 安装/服务启动与暂停
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/Tomcat/Tomcat-Web.html" class="nav-link">
+  Tomcat 启动web项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Java-Frame/IDE/IDEA.html" class="nav-link">
+  IDEA 使用说明
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          MongoDB
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://mongodb.net.cn/manual/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MongoDB 中文手册
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Init.html" class="nav-link">
+  MongoDB 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Shell.html" class="nav-link">
+  MongoDB Shell语法
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/MongoDB/MongoDB-Script.html" class="nav-link">
+  MongoDB 执行JS脚本
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Init.html" class="nav-link">
+  Mysql 安装/服务暂停和启动
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-SQL.html" class="nav-link">
+  Mysql sql使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Workbench.html" class="nav-link">
+  Mysql 可视化软件Workbench使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Mysql 控制台使用说明
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Mysql/Mysql-Error.html" class="nav-link">
+  Mysql 常见错误
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Redis
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/Redis/Redis-Init.html" class="nav-link">
+  Redis 安装/服务暂停和启动
+</a></li></ul></li><li class="dropdown-item"><h4>
+          达梦数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Database/DM/DM/" class="nav-link">
+  达梦数据库
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><span class="title">测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="测试" class="mobile-dropdown-title"><span class="title">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          相关概念
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Blackbox-Whitebox.html" class="nav-link">
+  黑盒测试和白盒测试概念描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/Test-Common/Test-Assert.html" class="nav-link">
+  断言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TestNG
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TestNG 教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Init.html" class="nav-link">
+  TestNG 入门
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-Annotation.html" class="nav-link">
+  TestNG 基本
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Testing/TestNG/TestNG-DataProvider.html" class="nav-link">
+  TestNG DataProvider（注解）数据提供者
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web" class="dropdown-title"><span class="title">Web</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web" class="mobile-dropdown-title"><span class="title">Web</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/JS/JS-Module-Specification/" class="nav-link">
+  JS模块规范
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/CSS/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Vue/Vuepress/" class="nav-link">
+  Vuepress
+</a></li></ul></li><li class="dropdown-item"><h4>
+          IDE
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/IDE/VSCode/" class="nav-link">
+  VSCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Android
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/Web/Android/Reference/" class="nav-link">
+  Android 参考
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="流媒体直播" class="dropdown-title"><span class="title">流媒体直播</span> <span class="arrow down"></span></button> <button type="button" aria-label="流媒体直播" class="mobile-dropdown-title"><span class="title">流媒体直播</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/SRS/" class="nav-link">
+  SRS流媒体直播
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/WebSocket/" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/AR/" class="nav-link">
+  AR
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Live-Stream/JavaCV/" class="nav-link">
+  JavaCV
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Markdown" class="dropdown-title"><span class="title">Markdown</span> <span class="arrow down"></span></button> <button type="button" aria-label="Markdown" class="mobile-dropdown-title"><span class="title">Markdown</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown/" class="nav-link">
+  Markdown 常用语法使用说明
+</a></li><li class="dropdown-item"><!----> <a href="/document-backup/blog/Markdown/Markdown-Flowchart/" class="nav-link">
+  Markdown 流程图
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="操作系统" class="dropdown-title"><span class="title">操作系统</span> <span class="arrow down"></span></button> <button type="button" aria-label="操作系统" class="mobile-dropdown-title"><span class="title">操作系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Linux
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Init.html" class="nav-link">
+  Linux 描述
+</a></li><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Linux/Linux-Command.html" class="nav-link">
+  Linux 常用命令记录
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Mac
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Mac/Mac/" class="nav-link">
+  Mac 描述
+</a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/weixin_41948075/article/details/108097810" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  brew 下载慢问题
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          其他OS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Kylin/" class="nav-link">
+  银河麒麟 描述
+</a></li></ul></li><li class="dropdown-item"><h4>
+          虚拟机
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/document-backup/blog/OS/Virtual-Machine/" class="nav-link">
+  虚拟机 描述
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bejson.com/jsonviewernew/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JSON格式化
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/unixtime.aspx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  时间戳转换
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          下载
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.macapp.so/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mac APP下载
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/guoshunfa/document-backup" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Mysql 控制台使用说明</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html#进入控制台" class="sidebar-link">进入控制台</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html#提示符信息" class="sidebar-link">提示符信息</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/document-backup/blog/Database/Mysql/Mysql-Console.html#客户端帮助" class="sidebar-link">客户端帮助</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mysql-控制台使用说明"><a href="#mysql-控制台使用说明" class="header-anchor">#</a> Mysql 控制台使用说明</h1> <h2 id="进入控制台"><a href="#进入控制台" class="header-anchor">#</a> 进入控制台</h2> <p>打开终端输入<code>mysql -uroot -p</code>，随后输入密码。</p> <p>root可替换成其他用户名。</p> <h2 id="提示符信息"><a href="#提示符信息" class="header-anchor">#</a> 提示符信息</h2> <table><thead><tr><th>提示符</th> <th>含义</th></tr></thead> <tbody><tr><td>mysql&gt;</td> <td>准备好接受新的命令。</td></tr> <tr><td>-&gt;</td> <td>等待多行的下一行，或等待以分号（;）结束。</td></tr> <tr><td>'&gt;</td> <td>等待多行的下一行，或等待以单引号（'）结束。</td></tr> <tr><td>&quot;&gt;</td> <td>等待多行的下一行，或等待以双引号（&quot;）结束。</td></tr> <tr><td>`&gt;</td> <td>等待多行的下一行，或等待以反斜点（`）结束。</td></tr> <tr><td>/*&gt;</td> <td>等待多行的下一行，或等待以注释终止符（*/）结束。</td></tr></tbody></table> <h2 id="客户端帮助"><a href="#客户端帮助" class="header-anchor">#</a> 客户端帮助</h2> <blockquote><p>所有 MySQL 命令的列表：注意，所有文本命令必须在一行的开头，并且以分号“;”结束</p></blockquote> <table><thead><tr><th>命令</th> <th>缩写</th> <th>说明</th> <th>示例</th></tr></thead> <tbody><tr><td>?</td> <td>?</td> <td>“help”的同义词。</td> <td>mysql&gt; ?</td></tr> <tr><td>clear</td> <td>c</td> <td>清除当前输入的语句。一般用于多行命令。</td> <td>mysql&gt; c</td></tr> <tr><td>connect</td> <td>r</td> <td>重新连接到服务器。可选参数是 db 和 host。连接 ID 将会改变。</td> <td>mysql&gt; r</td></tr> <tr><td>mysql&gt; r [数据库] [主机]</td> <td></td> <td></td> <td></td></tr> <tr><td>delimiter</td> <td>d</td> <td>设置语句定界符。默认为“;”。</td> <td>mysql&gt; d 定界符</td></tr> <tr><td>ego</td> <td>G</td> <td>发送命令到 MySQL 服务器，垂直显示结果。</td> <td>mysql&gt; SHOW DATABASESG</td></tr> <tr><td>exit</td> <td>q</td> <td>退出 MySQL。与 quit 相同。</td> <td>mysql&gt; exit</td></tr> <tr><td>go</td> <td>g</td> <td>发送命令到 MySQL 服务器。</td> <td>mysql&gt; SELECT `id` FROM `table`g</td></tr> <tr><td>help</td> <td>h</td> <td>显示该帮助信息。</td> <td>mysql&gt; h</td></tr> <tr><td>notee</td> <td>t</td> <td>不要写到 outfile 中。</td> <td>mysql&gt; notee</td></tr> <tr><td>print</td> <td>p</td> <td>打印当前命令。</td> <td>mysql&gt; SHOW TABLESp;</td></tr> <tr><td>prompt</td> <td>R</td> <td>改变你的 MySQL 提示符。</td> <td>mysql&gt; prompt --&gt;</td></tr> <tr><td>quit</td> <td>q</td> <td>退出 MySQL。</td> <td>mysql&gt; q</td></tr> <tr><td>rehash</td> <td>#</td> <td>重建完整的 hash（用于自动完成名称）。</td> <td>mysql&gt; #</td></tr> <tr><td>source</td> <td>.</td> <td>执行一个 SQL 脚本文件。使用一个文件名作为参数。</td> <td>mysql&gt; source D:my.sql</td></tr> <tr><td>status</td> <td>s</td> <td>从服务器取得状态信息。</td> <td>mysql&gt; status</td></tr> <tr><td>tee</td> <td>T</td> <td>设置 outfile 为 [to_outfile]。向已给出的 outfile 文件中追加所有东西。</td> <td>mysql&gt; tee E:store.txt</td></tr> <tr><td>use</td> <td>u</td> <td>使用另一个数据库。使用一个数据库名作为参数。</td> <td>mysql&gt; use 数据库</td></tr> <tr><td>charset</td> <td>C</td> <td>切换到其它字符集。可能需要使用多字节字符集来处理二进制日志。</td> <td>mysql&gt; charset 字符集</td></tr> <tr><td>warnings</td> <td>W</td> <td>在每一个语句后面显示警告。</td> <td>mysql&gt; W</td></tr> <tr><td>nowarning</td> <td>w</td> <td>不在每一个语句后面显示警告。</td> <td>mysql&gt; w</td></tr></tbody></table> <p>要获得服务器端的帮助信息，键入“help contents”</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/document-backup/assets/js/app.254c6552.js" defer></script><script src="/document-backup/assets/js/2.79453128.js" defer></script><script src="/document-backup/assets/js/17.9e436fc8.js" defer></script>
+  </body>
+</html>
